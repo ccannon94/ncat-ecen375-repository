@@ -22,8 +22,33 @@ THERE
 		
 OTHERPART
 		SUB		R0, R0, R3
-
-		; to do the above example without branching
-		CMP R3, R4
-		ADDEQ R0, R1, R2 ; add only if equal
-		SUB R0, R0, R3
+		
+		;		to do the above example without branching
+		CMP		R3, R4
+		ADDEQ	R0, R1, R2 ; add only if equal
+		SUB		R0, R0, R3
+		
+		
+		;		This time, only execute f=f-1 if NOT equal
+		;		if (i==j);
+		;		f = g + h;
+		;		else
+		;		f = f - i;
+		CMP		R3, R4
+		BEQ		EQUAL
+		BNE		NOTEQUAL
+		
+EQUAL
+		ADD		R0, R1, R2
+		B		DONE ; branch no matter what
+		
+NOTEQUAL
+		SUB		R0, R0, R3
+		B		DONE ; branch no matter what
+		
+DONE ; this label just ends the execution
+		
+		;		doing the above with mnemonics instead
+		CMP		R3, R3
+		ADDEQ	R0, R1, R2
+		SUBNE	R0, R0, R2
