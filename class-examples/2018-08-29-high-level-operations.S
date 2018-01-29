@@ -52,3 +52,22 @@ DONE ; this label just ends the execution
 		CMP		R3, R3
 		ADDEQ	R0, R1, R2
 		SUBNE	R0, R0, R2
+
+
+; for loop example
+; for(int i = 1; i != 10; i = i + 1)
+; sum = sum + i
+
+; R0 = i, R1 = sum
+MOV R0, #1
+MOV R1, #0
+
+FOR
+	CMP R0, #10
+	BEQ DONE
+
+	ADD R1, R1, R0
+	ADD R0, R0, #1
+	B FOR
+
+DONE
