@@ -1,22 +1,15 @@
 		;		Arithmetic Instructions
 		MOV		R1,  #0xB7
-		ORR		R1,  R1, #0xF100
+		ORR		R1, R1, #0xF100
 		ORR		R1, R1, #0xA10000
 		ORR		R1, R1, #0x46000000
-		MOV		R2, #0xFF0000
-		ORR		R2, R2, #0xFF
+		MOV		R2, #0xFF000000
+		ORR		R2, R2, #0xFF000000
 		
 		ADD		R3, R1, R2
 		SUB		R4, R1, R2
 		
 		;		Logical Instructions
-		MOV		R1, #0xB7
-		ORR		R1, R1, #0xF100
-		ORR		R1, R1, #0xA10000
-		ORR		R1, R1, #0x46000000
-		MOV		R2, #0xFF0000
-		ORR		R2, R2, #0xFF000000
-		
 		AND		R3, R1, R2
 		ORR		R4, R1, R2
 		EOR		R5, R1, R2
